@@ -8,8 +8,6 @@
     "prod:build": "cross-env NODE_ENV=production npm run build:css"
   },
   "devDependencies": {
-    "postcss": "^8.1.10",
-    "postcss-cli": "^8.3.0",
     "tailwindcss": "^2.0.1",
     "autoprefixer": "^10.0.2",
     "cross-env": "^7.0.2"
