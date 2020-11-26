@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "postcss src/styles.css -o public/styles.css",
-    "prod:build": "cross-env NODE_ENV=production npm run build:css"
+    "prod:build": "cross-env NODE_ENV=production npm run build"
   },
   "devDependencies": {
     "tailwindcss": "^2.0.1",
