@@ -4,16 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "postcss src/styles.css -o public/styles.css",
-    "prod:build": "cross-env NODE_ENV=production npm run build"
+    "build": "node .",
+    "prod:build": "cross-env NODE_ENV=production node ."
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.1"
-  },
-  "devDependencies": {
-    "tailwindcss": "^2.0.1",
+    "@fortawesome/fontawesome-free": "^5.15.1",
     "autoprefixer": "^10.0.2",
-    "cross-env": "^7.0.2"
+    "cross-env": "^7.0.2",
+    "postcss": "^8.1.10",
+    "tailwindcss": "^2.0.1"
   },
   "keywords": [],
   "author": "",
