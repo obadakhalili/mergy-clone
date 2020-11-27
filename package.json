@@ -7,6 +7,9 @@
     "build": "postcss src/styles.css -o public/styles.css",
     "prod:build": "cross-env NODE_ENV=production npm run build"
   },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1"
+  },
   "devDependencies": {
     "tailwindcss": "^2.0.1",
     "autoprefixer": "^10.0.2",
