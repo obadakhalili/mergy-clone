@@ -7,51 +7,53 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="bg-white fixed h-full z-10 top-0 right-0 w-0 overflow-hidden duration-500" id="sidebar">
-    <div class="flex flex-col pl-4" id="sidebarChildrenWrapper">
-      <i data-feather="x" stroke="#1f2937" class="self-end cursor-pointer m-7" id="sidebarCloseBtn"></i>
-      <ul>
-        <li class="pb-3 text-gray-600 hover:text-blue-500 duration-200">
+  <!-- navbar -->
+  <nav class="py-6 px-16 grid grid-cols-2">
+    <img src="./images/logo.svg" width="240" height="40.45" alt="Logo">
+    <div class="flex justify-end items-center">
+      <ul class="lg:flex hidden space-x-6 justify-end items-center">
+        <li class="text-gray-500 hover:text-blue-500">
           <a href="#">Home</a>
         </li>
-        <li class="pb-3 text-gray-600 hover:text-blue-500 duration-200">
+        <li class="text-gray-500 hover:text-blue-500">
           <a href="#">Why Mergy?</a>
         </li>
-        <li class="pb-3 text-gray-600 hover:text-blue-500 duration-200">
+        <li class="text-gray-500 hover:text-blue-500">
           <a href="#">How it Works</a>
         </li>
-        <li class="pb-3 text-gray-600 hover:text-blue-500 duration-200">
+        <li class="text-gray-500 hover:text-blue-500">
           <a href="#">About Us</a>
         </li>
-        <li class="text-gray-600 hover:text-blue-500 duration-200">
+        <li class="text-gray-500 hover:text-blue-500">
+          <a href="#">Contact</a>
+        </li>
+      </ul>
+      <i data-feather="menu" width="35" stroke="#1f2937" height="35" class="lg:hidden cursor-pointer" id="sidebarOpenBtn"></i>
+    </div>
+  </nav>
+  <!-- sidebar -->
+  <div class="bg-white fixed h-full z-10 top-0 right-0 w-0 overflow-hidden duration-500" id="sidebar">
+    <div class="flex flex-col" id="sidebarChildrenWrapper">
+      <i data-feather="x" stroke="#1f2937" class="self-end cursor-pointer m-7" id="sidebarCloseBtn"></i>
+      <ul class="space-y-4 pl-4">
+        <li class="text-gray-500 hover:text-blue-500">
+          <a href="#">Home</a>
+        </li>
+        <li class="text-gray-500 hover:text-blue-500">
+          <a href="#">Why Mergy?</a>
+        </li>
+        <li class="text-gray-500 hover:text-blue-500">
+          <a href="#">How it Works</a>
+        </li>
+        <li class="text-gray-500 hover:text-blue-500">
+          <a href="#">About Us</a>
+        </li>
+        <li class="text-gray-500 hover:text-blue-500">
           <a href="#">Contact</a>
         </li>
       </ul>
     </div>
   </div>
-  <nav class="py-6 px-24 grid grid-cols-2">
-    <img src="./images/logo.svg" width="240" height="40.45" alt="Logo">
-    <aside class="flex justify-end items-center">
-      <ul class="lg:block hidden">
-        <li class="pr-3 text-gray-600 inline hover:text-blue-500 duration-200">
-          <a href="#">Home</a>
-        </li>
-        <li class="pr-3 text-gray-600 inline hover:text-blue-500 duration-200">
-          <a href="#">Why Mergy?</a>
-        </li>
-        <li class="pr-3 text-gray-600 inline hover:text-blue-500 duration-200">
-          <a href="#">How it Works</a>
-        </li>
-        <li class="pr-3 text-gray-600 inline hover:text-blue-500 duration-200">
-          <a href="#">About Us</a>
-        </li>
-        <li class="text-gray-600 inline hover:text-blue-500 duration-200">
-          <a href="#">Contact</a>
-        </li>
-      </ul>
-      <i data-feather="menu" width="35" stroke="#1f2937" height="35" class="lg:hidden cursor-pointer" id="sidebarOpenBtn"></i>
-    </aside>
-  </nav>
   <script src="../node_modules/feather-icons/dist/feather.min.js"></script>
   <script src="script.js"></script>
 </body>
