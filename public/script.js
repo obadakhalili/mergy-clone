@@ -1,4 +1,6 @@
 function main() {
+  feather.replace();
+  
   const $sidebar = document.getElementById("sidebar");
   const $sidebarChildrenWrapper = document.getElementById("sidebarChildrenWrapper");
   const $sidebarOpenBtn = document.getElementById("sidebarOpenBtn");
