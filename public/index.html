@@ -8,31 +8,29 @@
 </head>
 <body>
   <!-- navbar -->
-  <nav class="py-6 px-16 grid grid-cols-2">
+  <nav class="grid grid-cols-2 items-center py-6 px-6 md:px-16">
     <img src="./images/logo.svg" width="240" height="40.45" alt="Logo">
-    <div class="flex justify-end items-center">
-      <ul class="lg:flex hidden space-x-6 justify-end items-center">
-        <li class="text-gray-500 hover:text-blue-500">
-          <a href="#">Home</a>
-        </li>
-        <li class="text-gray-500 hover:text-blue-500">
-          <a href="#">Why Mergy?</a>
-        </li>
-        <li class="text-gray-500 hover:text-blue-500">
-          <a href="#">How it Works</a>
-        </li>
-        <li class="text-gray-500 hover:text-blue-500">
-          <a href="#">About Us</a>
-        </li>
-        <li class="text-gray-500 hover:text-blue-500">
-          <a href="#">Contact</a>
-        </li>
-      </ul>
-      <i data-feather="menu" width="35" stroke="#1f2937" height="35" class="lg:hidden cursor-pointer" id="sidebarOpenBtn"></i>
-    </div>
+    <ul class="lg:flex hidden justify-self-end space-x-6">
+      <li class="text-gray-500 hover:text-blue-500">
+        <a href="#">Home</a>
+      </li>
+      <li class="text-gray-500 hover:text-blue-500">
+        <a href="#">Why Mergy?</a>
+      </li>
+      <li class="text-gray-500 hover:text-blue-500">
+        <a href="#">How it Works</a>
+      </li>
+      <li class="text-gray-500 hover:text-blue-500">
+        <a href="#">About Us</a>
+      </li>
+      <li class="text-gray-500 hover:text-blue-500">
+        <a href="#">Contact</a>
+      </li>
+    </ul>
+    <i data-feather="menu" width="35" stroke="#1f2937" height="35" class="lg:hidden justify-self-end cursor-pointer" id="sidebarOpenBtn"></i>
   </nav>
   <!-- sidebar -->
-  <div class="bg-white fixed h-full z-10 top-0 right-0 w-0 overflow-hidden duration-500" id="sidebar">
+  <div class="bg-white fixed h-full top-0 right-0 w-0 z-10 overflow-hidden duration-500" id="sidebar">
     <div class="flex flex-col" id="sidebarChildrenWrapper">
       <i data-feather="x" stroke="#1f2937" class="self-end cursor-pointer m-7" id="sidebarCloseBtn"></i>
       <ul class="space-y-4 pl-4">
