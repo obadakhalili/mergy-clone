@@ -2,16 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-#sidebar.active {
-  width: 240px;
-  box-shadow: 0 0 0 10000000000000px rgba(0, 0, 0, .5);
+input,
+textarea,
+button,
+select,
+a,
+span {
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
 
-#sidebarChildrenWrapper {
-  opacity: 0;
-  transition: all .15s;
-}
-
-#sidebarChildrenWrapper.active {
-  opacity: 1;
+#sidebar.not-active {
+  transform: translateX(-100%);
 }
