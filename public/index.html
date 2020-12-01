@@ -25,18 +25,12 @@
           <a href="#">Contact</a>
         </li>
       </ul>
-      <span
-        v-html="toSvg('menu', { width: '30', height: '30', stroke: 'rgb(35, 35, 35)' })"
-        class="lg:hidden justify-self-end z-10 cursor-pointer"
-        @click="inactiveSidebar = !inactiveSidebar"
-      ></span>
+      <span @click="inactiveSidebar = !inactiveSidebar" :class="inactiveSidebar ? 'text-secondary' : 'text-white'" class="lg:hidden justify-self-end z-10 transition-colors duration-500 cursor-pointer">
+        <i data-feather="menu" width="30" height="30"></i>
+      </span>
     </nav>
     <!-- sidebar -->
-    <div
-      id="sidebar"
-      class="fixed h-full top-0 left-0 w-full transition-transform ease-out duration-500 bg-primary text-white"
-      :class="{ 'not-active': inactiveSidebar }"
-    >
+    <div :class="{ '-translate-x-full': inactiveSidebar }" class="fixed h-full w-full top-0 left-0 transform transition-transform ease-out duration-500 bg-primary text-white">
       <ul class="space-y-4 mt-20 text-center">
         <li>
           <a href="#">Home</a>
