@@ -14,26 +14,26 @@
       <img src="./images/logo.svg" width="240" height="40.45" alt="Logo">
       <div class="md:col-span-2 justify-self-end z-10">
         <ul class="md:flex hidden space-x-6">
-          <li class="text-gray-500 hover:text-primary">
+          <li class="text-gray-500 hover:text-blue-500">
             <a href="#">Home</a>
           </li>
-          <li class="text-gray-500 hover:text-primary">
+          <li class="text-gray-500 hover:text-blue-500">
             <a href="#">Services</a>
           </li>
-          <li class="text-gray-500 hover:text-primary">
+          <li class="text-gray-500 hover:text-blue-500">
             <a href="#">Hire Now</a>
           </li>
-          <li class="text-gray-500 hover:text-primary">
+          <li class="text-gray-500 hover:text-blue-500">
             <a href="#">Contact</a>
           </li>
         </ul>
-        <span @click="inactiveSidebar = !inactiveSidebar" :class="inactiveSidebar ? 'text-secondary' : 'text-white'" class="md:hidden transition-colors duration-500 cursor-pointer">
+        <span @click="inactiveSidebar = !inactiveSidebar" :class="inactiveSidebar ? 'text-gray-800' : 'text-white'" class="md:hidden transition-colors duration-500 cursor-pointer">
           <i data-feather="menu" width="30" height="30"></i>
         </span>
       </div>
     </nav>
     <!-- sidebar -->
-    <div :class="{ '-translate-x-full': inactiveSidebar }" class="fixed h-full w-full top-0 left-0 transform transition-transform ease-out duration-500 bg-primary text-white">
+    <div :class="{ '-translate-x-full': inactiveSidebar }" class="fixed h-full w-full top-0 left-0 transform transition-transform ease-out duration-500 bg-blue-500 text-white">
       <ul class="space-y-4 mt-20 text-center">
         <li>
           <a href="#">Home</a>
