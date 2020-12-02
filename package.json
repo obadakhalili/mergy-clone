@@ -10,7 +10,6 @@
   "dependencies": {
     "autoprefixer": "^10.0.2",
     "cross-env": "^7.0.2",
-    "feather-icons": "^4.28.0",
     "postcss": "^8.1.10",
     "tailwindcss": "^2.0.1"
   },
