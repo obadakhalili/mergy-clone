@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "live-server --port=8080 public",
+    "serve": "live-server --start --port public",
     "build": "node .",
     "build:prod": "cross-env NODE_ENV=production node ."
   },
