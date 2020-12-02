@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "browser-sync start --server public",
+    "serve": "browser-sync start --port 8080 --server public",
     "build": "node .",
     "build:prod": "cross-env NODE_ENV=production node ."
   },
@@ -15,10 +15,10 @@
     "postcss-csso": "^5.0.0",
     "tailwindcss": "^2.0.1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.26.13"
-  }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
