@@ -8,8 +8,8 @@ const { promises: fs } = require("fs");
     console.log("Buidling ...");
 
     const postCSS = await fs.readFile("src/styles.css");
-    const result = await postcss([tailwindcss, autoprefixer]).process(postCSS, { from: "src/styles.css", to: "public/styles.css" });
-    await fs.writeFile("public/styles.css", result.css);
+    const result = await postcss([tailwindcss, autoprefixer]).process(postCSS, { from: "src/styles.css", to: "public/styles/index.css" });
+    await fs.writeFile("public/styles/index.css", result.css);
     
     console.log("The CSS file was built successfully");
   } catch (e) {
