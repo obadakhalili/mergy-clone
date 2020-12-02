@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "serve": "browser-sync start --port 8080 --server public",
+    "serve": "live-server --port=8080 public",
     "build": "node .",
     "build:prod": "cross-env NODE_ENV=production node ."
   },
@@ -16,7 +16,7 @@
     "tailwindcss": "^2.0.1"
   },
   "devDependencies": {
-    "browser-sync": "^2.26.13"
+    "live-server": "^1.2.1"
   },
   "keywords": [],
   "author": "",
