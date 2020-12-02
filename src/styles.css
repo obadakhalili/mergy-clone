@@ -1,12 +1,14 @@
-input,
-textarea,
-button,
-select,
-a,
-span {
-  -webkit-tap-highlight-color: transparent;
-}
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+  input,
+  textarea,
+  button,
+  select,
+  a,
+  span {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
