@@ -6,7 +6,7 @@
   "scripts": {
     "serve": "browser-sync start --server public",
     "build": "node .",
-    "prod:build": "cross-env NODE_ENV=production node ."
+    "build:prod": "cross-env NODE_ENV=production node ."
   },
   "dependencies": {
     "autoprefixer": "^10.0.2",
