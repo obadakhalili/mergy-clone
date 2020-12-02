@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "serve": "browser-sync start --server public",
     "build": "node .",
     "prod:build": "cross-env NODE_ENV=production node ."
   },
@@ -16,5 +17,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.26.13"
+  }
 }
