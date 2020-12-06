@@ -12,3 +12,27 @@
     -webkit-tap-highlight-color: transparent;
   }
 }
+
+@layer components {
+  #navbar {
+    height: 75px;
+  }
+
+  @media (min-width: 500px) {
+    #converContainer {
+      width: 450px;
+      height: 450px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    #navbar {
+      height: 100px;
+    }
+
+    #jumbotron {
+      height: calc(100vh - 100px);
+      padding: 2rem;
+    }
+  }
+}

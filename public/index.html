@@ -10,13 +10,10 @@
 <body>
   <main id="root">
     <!-- navbar -->
-    <nav class="grid grid-cols-2 md:grid-cols-3 items-center py-6 md:py-8 px-8 sm:px-16 lg:px-44">
+    <nav id="navbar" class="grid grid-cols-2 md:grid-cols-3 items-center py-6 md:py-8 px-8 sm:px-16 lg:px-44">
       <img src="./images/logo.svg" width="240" height="40.45" alt="Logo">
       <div class="md:col-span-2 justify-self-end z-10">
         <ul class="md:flex hidden space-x-6">
-          <li class="text-gray-500 hover:text-blue-500">
-            <a href="#">Home</a>
-          </li>
           <li class="text-gray-500 hover:text-blue-500">
             <a href="#">Services</a>
           </li>
@@ -36,9 +33,6 @@
     <div :class="{ '-translate-x-full': inactiveSidebar }" class="fixed h-full w-full top-0 left-0 transform transition-transform ease-out duration-500 bg-blue-500 text-white">
       <ul class="space-y-4 mt-20 text-center">
         <li>
-          <a href="#">Home</a>
-        </li>
-        <li>
           <a href="#">Services</a>
         </li>
         <li>
@@ -49,6 +43,23 @@
         </li>
       </ul>
     </div>
+    <!-- Jumbotron -->
+    <section id="jumbotron">
+      <aside id="converContainer" class="p-10 mx-auto md:float-right">
+        <img src="images/cover.svg" alt="Cover Photo">
+      </aside>
+      <aside class="p-5 md:w-1/2 md:absolute md:top-1/2 md:transform md:-translate-y-1/2">
+        <h3 class="text-xl md:text-3xl">
+         Lorem ipsum dolor sit amet consectetur adipisicing.
+        </h3>
+        <p class="my-3 md:text-xl text-gray-500">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Veniam consequatur iusto sequi.
+        </p>
+        <button class="font-semibold py-2 md:py-3 px-4 rounded shadow-md transition focus:outline-none focus:ring-offset-2 focus:ring-2 focus:ring-blue-500 text-white bg-blue-500 focus:bg-blue-500 hover:bg-blue-700 focus:ring-offset-blue-200">
+          Lorem, ipsum dolor.
+        </button>
+      </aside>
+    </section>
   </main>
   <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@3.0.3/dist/vue.global.js"></script>
