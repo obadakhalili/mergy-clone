@@ -14,10 +14,6 @@
 }
 
 @layer components {
-  #navbar {
-    height: 75px;
-  }
-
   @media (min-width: 768px) {
     #navbar {
       height: 100px;
@@ -26,11 +22,6 @@
     #jumbotron {
       height: calc(100vh - 100px);
       padding: 2rem;
-    }
-
-    #converContainer {
-      width: 550px;
-      height: 550px;
     }
   }
 }
