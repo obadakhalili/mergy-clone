@@ -75,6 +75,24 @@
         </p>
       </article>
     </section>
+    <!-- Services -->
+    <section class="px-4 sm:px-16 lg:px-44 mt-4">
+      <ul class="grid grid-cols-4 space-x-3">
+        <li
+          v-for="(service, index) in services"
+          @click="activeService = index"
+          :class="{ 'bg-blue-500 text-white': index === activeService }"
+          class="transition-colors py-4 px-0.5 rounded cursor-pointer text-center"
+        >
+          <i :data-feather="service.icon" width="35" height="35" class="mb-4 mx-auto"></i>
+          <label class="text-xs md:text-base">{{ service.title }}</label>
+        </li>
+      </ul>
+      <div class="grid md:grid-cols-3 items-center py-10">
+        <img :src="`./images/${services[activeService].image}.svg`" :alt="`${services[activeService].title} Photo`">
+        <p class="p-5 md:p-10 md:col-span-2">{{ services[activeService].desc }}</p>
+      </div>
+    </section>
   </main>
   <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@3.0.3/dist/vue.global.js"></script>
