@@ -15,10 +15,10 @@
       <div class="md:col-span-2 justify-self-end z-10">
         <ul class="md:flex hidden space-x-6">
           <li class="text-gray-500 hover:text-blue-500">
-            <a href="#">About Us</a>
+            <a href="#aboutus">About Us</a>
           </li>
           <li class="text-gray-500 hover:text-blue-500">
-            <a href="#">What We Offer</a>
+            <a href="#services">What We Offer</a>
           </li>
           <li class="text-gray-500 hover:text-blue-500">
             <a href="#">Hire</a>
@@ -35,11 +35,11 @@
     <!-- sidebar -->
     <div :class="{ '-translate-x-full': inactiveSidebar }" class="fixed h-full w-full top-0 left-0 transform transition-transform ease-out duration-500 bg-blue-500 text-white">
       <ul class="space-y-4 mt-20 text-center">
-        <li>
-          <a href="#">About Us</a>
+        <li @click="inactiveSidebar = true">
+          <a href="#aboutus">About Us</a>
         </li>
-        <li>
-          <a href="#">What We Offer</a>
+        <li @click="inactiveSidebar = true">
+          <a href="#services">What We Offer</a>
         </li>
         <li>
           <a href="#">Hire</a>
@@ -67,7 +67,7 @@
       </aside>
     </section>
     <!-- About Us -->
-    <section class="grid md:grid-cols-3 items-center justify-items-center p-5 md:p-10 bg-gray-100">
+    <section id="aboutus" class="grid md:grid-cols-3 items-center justify-items-center p-5 md:p-10 bg-gray-100">
       <img src="images/aboutus.svg" alt="About Us Photo" class="w-3/4 mb-12 md:mb-0">
       <article class="md:w-10/12 md:col-span-2">
         <p class="lg:text-lg">
@@ -76,7 +76,7 @@
       </article>
     </section>
     <!-- Services -->
-    <section class="px-4 sm:px-16 lg:px-44 mt-4">
+    <section id="services" class="px-4 sm:px-16 lg:px-44 mt-4">
       <ul class="grid grid-cols-4 space-x-3">
         <li
           v-for="(service, index) in services"
@@ -94,8 +94,8 @@
       </div>
     </section>
   </main>
-  <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue@3.0.3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
   <script src="scripts/main.js"></script>
 </body>
 </html>
