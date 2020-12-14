@@ -89,7 +89,11 @@
         </li>
       </ul>
       <div class="grid md:grid-cols-3 items-center py-10">
-        <img :src="`./images/${services[activeService].image}.svg`" :alt="`${services[activeService].title} Photo`">
+        <img
+          :src="`./images/${services[activeService].image}.svg`"
+          :alt="`${services[activeService].title} Photo`"
+          :class="{ 'md:order-1': activeService % 2 === 0 }"
+        >
         <p class="p-5 md:p-10 md:col-span-2">{{ services[activeService].desc }}</p>
       </div>
     </section>
