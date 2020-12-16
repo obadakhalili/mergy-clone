@@ -8,7 +8,7 @@ const services = [
   {
     title: "Talent",
     icon: "circle",
-    desc: "Everyone wants an ideal employee. So, our platform connects with top-end software engineers. Most of which have a significant amount of skill sets along with real-world experience to suit everyone's requirements.",
+    desc: "Everyone wants an ideal employee, hence why our platform connects with top-end software engineers. Most of which have a significant amount of skill sets along with real-world experience to suit everyone's requirements.",
     image: "talent"
   },
   {
@@ -20,7 +20,7 @@ const services = [
   {
     title: "Profit",
     icon: "dollar-sign",
-    desc: "The salary rates we provide are precise and honest. Even though the employees we provide are top-end software engineers, the wages that accompany them are fair and well thought out to accommodate your company's profit and growth. To help boost your focus on your business logic, leaving the process of finding an ideal employee to us.",
+    desc: "The salary rates we provide are precise and honest. Even though the employees we provide are top-end software engineers, the wages that accompany them are fair and well thought out to accommodate your company's profit and growth. We help boost your focus on your business logic, leaving the process of finding an ideal employee to us.",
     image: "money"
   }
 ];
