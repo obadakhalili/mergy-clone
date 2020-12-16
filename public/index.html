@@ -24,7 +24,7 @@
             <a href="#">Hire</a>
           </li>
           <li class="text-gray-500 hover:text-blue-500">
-            <a href="#">Contact</a>
+            <a href="#contactus">Contact</a>
           </li>
         </ul>
         <span @click="inactiveSidebar = !inactiveSidebar" :class="inactiveSidebar ? 'text-gray-800' : 'text-white'" class="md:hidden transition-colors duration-500 cursor-pointer">
@@ -44,8 +44,8 @@
         <li>
           <a href="#">Hire</a>
         </li>
-        <li>
-          <a href="#">Contact</a>
+        <li @click="inactiveSidebar = true">
+          <a href="#contactus">Contact</a>
         </li>
       </ul>
     </div>
@@ -61,7 +61,7 @@
           software engineer based on the required skill set. 
           We have a large pool of software engineers. Click on "Hire Now!" too see for yourself.
         </p>
-        <button class="font-semibold py-2 md:py-3 px-4 rounded shadow-md transition focus:outline-none focus:ring-offset-2 focus:ring-2 focus:ring-blue-500 text-white bg-blue-500 focus:bg-blue-500 hover:bg-blue-700 focus:ring-offset-blue-200">
+        <button class="button">
           Hire Now!
         </button>
       </aside>
@@ -77,6 +77,9 @@
     </section>
     <!-- Services -->
     <section id="services" class="px-4 sm:px-16 lg:px-44 mt-4">
+      <h3 class="text-3xl text-center mb-8">
+        What We Offer
+      </h3>
       <ul class="grid grid-cols-4 space-x-3">
         <li
           v-for="(service, index) in services"
@@ -95,6 +98,31 @@
           :class="{ 'md:order-1': activeService % 2 === 0 }"
         >
         <p class="p-5 md:p-10 md:col-span-2">{{ services[activeService].desc }}</p>
+      </div>
+    </section>
+    <!-- Contact -->
+    <section id="contactus" class="px-4 sm:px-16 lg:px-44 mb-52 mt-4">
+      <h3 class="text-3xl text-center mb-8">
+        Contact Us
+      </h3>
+      <div class="flex flex-col md:flex-row md:space-x-4">
+        <div>
+          <div class="flex space-x-2">
+            <input class="input mb-5" type="text" placeholder="First Name">
+            <input class="input mb-5" type="text" placeholder="Last Name">
+          </div>
+          <input class="input mb-5" type="text" placeholder="Email">
+          <button class="button hidden md:block">
+            Send Message
+          </button>
+        </div>
+        <div>
+          <input class="input mb-5" type="text" placeholder="Subject">
+          <textarea class="input" rows="4" placeholder="Message"></textarea>
+          <button class="button mt-5 md:hidden">
+            Send Message
+          </button>
+        </div>
       </div>
     </section>
   </main>
