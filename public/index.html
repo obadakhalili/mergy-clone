@@ -111,7 +111,7 @@
             <input class="input mb-5" type="text" placeholder="First Name">
             <input class="input mb-5" type="text" placeholder="Last Name">
           </div>
-          <input class="input mb-5" type="text" placeholder="Email">
+          <input class="input mb-5" type="email" placeholder="Email">
           <button class="button hidden md:block">
             Send Message
           </button>
@@ -142,8 +142,13 @@
         </li>
       </ul>
     </section>
+    <transition name="fade">
+      <a v-show="showGoToTop" ref="goTopButton" href="#" class="button fixed bottom-8 right-5">
+        <i data-feather="arrow-up"></i>
+      </a>
+    </transition>
   </main>
-  <script src="https://cdn.jsdelivr.net/npm/vue@3.0.3/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@3.0.3/dist/vue.global.prod.js"></script>
   <script src="https://unpkg.com/feather-icons@4.28.0/dist/feather.min.js"></script>
   <script src="scripts/main.js"></script>
 </body>

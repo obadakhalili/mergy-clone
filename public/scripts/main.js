@@ -31,8 +31,14 @@ Vue
       return {
         inactiveSidebar: true,
         services,
-        activeService: 0
+        activeService: 0,
+        showGoToTop: false
       }
+    },
+    mounted() {
+      window.addEventListener("scroll", () => {
+        this.showGoToTop = (document.body.scrollTop || document.documentElement.scrollTop) > 100 ? true : false;
+      });
     }
   })
   .mount("#root");
