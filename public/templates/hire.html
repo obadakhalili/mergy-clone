@@ -47,17 +47,17 @@
       </template>
       <template v-else-if="currentStep === 2">
         <h4 class="text-xl md:text-2xl">
-          We need to hear from you to more understand your needs, then
+          We need to set up a meeting with you to better understand your needs, then we will:
         </h4>
         <ul class="list-disc list-inside">
           <li>
-            Send you engineers resumes that complies to your needs
+            Send you engineers' resumes that comply with your needs
           </li>
           <li>
-            Interview your engineers of choice
+            Interview your engineer/engineers of choice
           </li>
           <li>
-            Start your 4 weeks no-risk trial
+            Start your 4 week no-risk trial
           </li>
         </ul>
         <div class="flex mt-3">
@@ -67,20 +67,19 @@
       </template>
       <template v-else-if="currentStep === 3">
         <p>
-          Okay
-          <b>{{ hireInfo[1].inputs[0] }}</b>, you have a meeting on
-          <b>{{ new Date(hireInfo[2].date).toDateString() }}</b> with us to fill us more on what you need. Sounds good?
+          Okay Mr.<b>{{ hireInfo[1].inputs[1] }}</b>, you have a meeting on
+          <b>{{ new Date(hireInfo[2].date).toLocaleString() }}</b> with us to fill us more on what you need. Sounds good?
         </p>
       </template>
       <template v-else>
-        <h4 class="text-xl md:text-2xl">See you soon!</h4>
+        <h4 class="text-xl md:text-2xl">Talk to you soon!</h4>
       </template>
       <div class="flex space-x-2 mt-4">
         <button v-if="currentStep > 0 && currentStep < 4" @click="currentStep--" type="submit" class="button">
           Previous Step
         </button>
         <button v-if="currentStep < 4" @click="currentStep++" type="submit" class="button">
-          {{ currentStep < 3 ? 'Next Step' : 'Yep' }}
+          {{ currentStep < 3 ? 'Next Step' : 'Yes' }}
         </button>
       </div>
     </form>

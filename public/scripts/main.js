@@ -64,7 +64,7 @@ async function HireComponent() {
               },
               {
                 value: "Full Time",
-                options: ["Part Time", "Half Time"]
+                options: ["Full Time", "Part Time"]
               }
             ]
           },
@@ -73,7 +73,7 @@ async function HireComponent() {
             inputs: ["Harry", "Potter", "harry.gryffindor@hogwarts.com", "6054756961"]
           },
           {
-            header: "Hiring Meeting",
+            header: "Meeting Set-up",
             date: new Date().toLocaleString()
           },
           { header: "Ready to Go?" },
