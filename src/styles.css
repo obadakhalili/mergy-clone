@@ -4,7 +4,7 @@
 
 @layer base {
   .fade-enter-active, .fade-leave-active {
-    transition: opacity .25s ease;
+    transition: opacity .5s ease;
   }
   
   .fade-enter-from, .fade-leave-to {
@@ -32,6 +32,10 @@
   
   .input {
     @apply transition border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-md rounded text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
+  }
+
+  #hire {
+    height: calc(100vh - 100px);
   }
 
   @media (min-width: 768px) {

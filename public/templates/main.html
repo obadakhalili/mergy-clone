@@ -1,0 +1,102 @@
+<div>
+  <!-- Jumbotron -->
+  <section id="jumbotron" class="p-5 grid items-center md:grid-cols-2">
+    <img src="images/cover.svg" alt="Cover Photo" class="mb-5 md:mb-0 md:order-1">
+    <aside>
+      <h3 class="text-4xl lg:text-6xl">
+        Hire elite software engineers with ease
+      </h3>
+      <p class="my-5 lg:text-xl text-gray-500">
+        Our service provides a search application which allows you to search for a 
+        software engineer based on the required skill set. 
+        We have a large pool of software engineers. Click on "Hire Now!" too see for yourself.
+      </p>
+      <router-link to="/hire">
+        <button class="button">
+          Hire Now!
+        </button>
+      </router-link>
+    </aside>
+  </section>
+  <!-- About Us -->
+  <section id="aboutus" class="grid md:grid-cols-3 items-center justify-items-center p-5 md:p-10 bg-gray-100">
+    <img src="images/aboutus.svg" alt="About Us Photo" class="w-3/4 mb-12 md:mb-0">
+    <article class="md:w-10/12 md:col-span-2">
+      <p class="lg:text-lg">
+        Mergy is a movement to make hiring software engineers easier and quicker. Finding the ideal SWE is never an easy task. That’s why here in Mergy we provide you with top of the line SWEs along with a requirement interface for all the skill sets you need to get the job done. We also provide a salary rate for each of the engineers you get matched with. Our goal is to help make employers’ jobs faster as well as give suitable job opportunities for skilled software engineers.
+      </p>
+    </article>
+  </section>
+  <!-- Services -->
+  <section id="services" class="px-4 sm:px-16 lg:px-44 mt-4">
+    <h3 class="text-3xl text-center mb-8">
+      What We Offer
+    </h3>
+    <ul class="grid grid-cols-4 space-x-3">
+      <li
+        v-for="(service, index) in services"
+        @click="activeService = index"
+        :class="{ 'bg-blue-500 text-white': index === activeService }"
+        class="transition-colors py-4 px-0.5 rounded cursor-pointer text-center"
+      >
+        <i :data-feather="service.icon" width="35" height="35" class="mb-4 mx-auto"></i>
+        <label class="text-xs md:text-base">{{ service.title }}</label>
+      </li>
+    </ul>
+    <div class="grid md:grid-cols-3 items-center py-10">
+      <img
+        :src="`./images/${services[activeService].image}.svg`"
+        :alt="`${services[activeService].title} Photo`"
+        :class="{ 'md:order-1': activeService % 2 === 0 }"
+      >
+      <p class="p-5 md:p-10 md:col-span-2">{{ services[activeService].desc }}</p>
+    </div>
+  </section>
+  <!-- Contact -->
+  <section id="contactus" class="px-4 sm:px-16 lg:px-44 mt-4">
+    <h3 class="text-3xl text-center mb-8">
+      Contact Us
+    </h3>
+    <div class="grid md:grid-cols-2 md:space-x-4">
+      <div>
+        <div class="flex space-x-2">
+          <input type="text" placeholder="First Name" class="input mb-5">
+          <input type="text" placeholder="Last Name" class="input mb-5">
+        </div>
+        <input type="email" placeholder="Email" class="input mb-5">
+        <button class="button hidden md:block">
+          Send Message
+        </button>
+      </div>
+      <div>
+        <input type="text" placeholder="Subject" class="input mb-5">
+        <textarea rows="4" placeholder="Message" class="input resize-none"></textarea>
+        <button class="button mt-4 md:hidden">
+          Send Message
+        </button>
+      </div>
+    </div>
+  </section>
+  <!-- Footer -->
+  <section class="grid justify-items-center mt-4 py-10">
+    <ul class="flex space-x-4">
+      <li class="cursor-pointer hover:text-gray-500">
+        <i data-feather="linkedin"></i>
+      </li>
+      <li class="cursor-pointer hover:text-gray-500">
+        <i data-feather="twitter"></i>
+      </li>
+      <li class="cursor-pointer hover:text-gray-500">
+        <i data-feather="instagram"></i>
+      </li>
+      <li class="cursor-pointer hover:text-gray-500">
+        <i data-feather="facebook"></i>
+      </li>
+    </ul>
+  </section>
+  <transition name="fade">
+    <a v-show="showGoToTop" ref="goTopButton" href="#" class="button fixed bottom-8 right-5">
+      <i data-feather="arrow-up"></i>
+    </a>
+  </transition>
+</div>
