@@ -37,6 +37,11 @@ async function MainComponent() {
         showGoToTop: false
       }
     },
+    methods: {
+      scrollTop() {
+        scroll(0, 0);
+      }
+    },
     mounted() {
       window.addEventListener("scroll", () => {
         this.showGoToTop = (document.body.scrollTop || document.documentElement.scrollTop) > 100 ? true : false;
@@ -100,14 +105,14 @@ const router = new VueRouter({
   ]
 });
 
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, _, next) => {
   if (to.hash === "") {
     NProgress.start();
     NProgress.set(0.1);
   }
   next();
 })
-router.afterEach((to, next) => {
+router.afterEach((to, _) => {
   if (to.hash === "") {
     NProgress.done();
   }
