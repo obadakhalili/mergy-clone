@@ -31,7 +31,7 @@
             <a href="#contactus">Contact</a>
           </li>
         </ul>
-        <span @click="inactiveSidebar = !inactiveSidebar" :class="inactiveSidebar ? 'text-gray-800' : 'text-white'" class="md:hidden transition-colors duration-500 cursor-pointer">
+        <span @click="sidebarActive = !sidebarActive" :class="sidebarActive ? 'text-white' : 'text-gray-800'" class="md:hidden transition-colors duration-500 cursor-pointer">
           <i data-feather="menu" width="30" height="30"></i>
         </span>
       </div>
@@ -44,20 +44,20 @@
       </ul>
     </nav>
     <!-- sidebar -->
-    <div :class="{ '-translate-x-full': inactiveSidebar }" class="fixed h-full w-full top-0 left-0 transform transition-transform ease-out duration-500 bg-blue-500 text-white z-10">
+    <div ref="sidebar" class="fixed h-full w-full top-0 left-0 transform -translate-x-full transition-transform ease-out duration-500 bg-blue-500 text-white z-10">
       <ul class="space-y-4 mt-20 text-center">
-        <li @click="inactiveSidebar = true">
+        <li @click="sidebarActive = false">
           <a href="#aboutus">About Us</a>
         </li>
-        <li @click="inactiveSidebar = true">
+        <li @click="sidebarActive = false">
           <a href="#services">What We Offer</a>
         </li>
-        <li @click="inactiveSidebar = true">
+        <li @click="sidebarActive = false">
           <router-link to="/hire">
             <a href="#">Hire</a>
           </router-link>
         </li>
-        <li @click="inactiveSidebar = true">
+        <li @click="sidebarActive = false">
           <a href="#contactus">Contact</a>
         </li>
       </ul>

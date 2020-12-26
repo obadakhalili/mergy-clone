@@ -129,10 +129,15 @@ router.afterEach((to, _) => {
 
 new Vue({
   router: router,
-  data: { inactiveSidebar: true },
+  data: { sidebarActive: false },
   computed: {
     inHome() {
       return this.$route.path == '/';
+    }
+  },
+  watch: {
+    sidebarActive(value) {
+      this.$refs.sidebar.classList[value ? "remove" : "add"]("-translate-x-full");
     }
   }
 }).$mount("#root");
