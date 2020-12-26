@@ -4,8 +4,8 @@
       <h3 class="col-span-2 font-semibold text-xl md:text-2xl">
         {{ hireInfo[currentStep].header }}
       </h3>
-      <h3 class="justify-self-end text-base md:text-lg text-gray-700">
-        Step {{ currentStep + 1 }} of 5
+      <h3 v-if="currentStep < 4" class="justify-self-end text-base md:text-lg text-gray-700">
+        Step {{ currentStep + 1 }} of 4
       </h3>
     </header>
     <form @submit.prevent class="mt-6">
@@ -72,7 +72,8 @@
         </p>
       </template>
       <template v-else>
-        <h4 class="text-xl md:text-2xl">Talk to you soon!</h4>
+        <img src="images/meeting.svg" alt="Meeting" width="400" height="400" class="mx-auto">
+        <h4 class="text-center text-3xl md:text-5xl font-semibold text-gray-700 mt-8">Talk to you soon!</h4>
       </template>
       <div class="flex space-x-2 mt-4">
         <button v-if="currentStep > 0 && currentStep < 4" @click="currentStep--, $event.target.blur()" type="submit" class="button">
