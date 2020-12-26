@@ -14,14 +14,7 @@
     <!-- navbar -->
     <nav id="navbar" class="grid grid-cols-2 md:grid-cols-3 items-center py-6 md:py-8 px-4 sm:px-16 lg:px-44">
       <img src="./images/logo.svg" width="240" height="40.45" alt="Logo">
-      <ul v-if="inHire" class="md:col-span-2 justify-self-end">
-        <li class="text-gray-500 hover:text-blue-500">
-          <router-link to="/">
-            <a href="#">Home</a>
-          </router-link>
-        </li>
-      </ul>
-      <div v-else class="md:col-span-2 justify-self-end z-20">
+      <div v-if="inHome" class="md:col-span-2 justify-self-end z-20">
         <ul class="md:flex hidden space-x-6">
           <li class="text-gray-500 hover:text-blue-500">
             <a href="#aboutus">About Us</a>
@@ -42,6 +35,13 @@
           <i data-feather="menu" width="30" height="30"></i>
         </span>
       </div>
+      <ul v-else class="md:col-span-2 justify-self-end">
+        <li class="text-gray-500 hover:text-blue-500">
+          <router-link to="/">
+            <a href="#">Home</a>
+          </router-link>
+        </li>
+      </ul>
     </nav>
     <!-- sidebar -->
     <div :class="{ '-translate-x-full': inactiveSidebar }" class="fixed h-full w-full top-0 left-0 transform transition-transform ease-out duration-500 bg-blue-500 text-white z-10">

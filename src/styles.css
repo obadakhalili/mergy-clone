@@ -34,18 +34,15 @@
     @apply transition border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-md rounded text-base focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent;
   }
 
-  #hire {
+  #jumbotron,
+  #hire,
+  #notfound {
     height: calc(100vh - 100px);
   }
 
   @media (min-width: 768px) {
     #navbar {
       height: 100px;
-    }
-
-    #jumbotron {
-      height: calc(100vh - 100px);
-      padding: 2rem;
     }
   }
 }

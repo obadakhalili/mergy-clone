@@ -91,6 +91,11 @@ async function HireComponent() {
   };
 }
 
+async function NotFoundComponent() {
+  const template = await (await fetch("../templates/404.html")).text();
+  return { template };
+}
+
 const router = new VueRouter({
   mode: "history",
   routes: [
@@ -101,6 +106,10 @@ const router = new VueRouter({
     {
       path: "/hire",
       component: HireComponent
+    },
+    {
+      path: "*",
+      component: NotFoundComponent
     }
   ]
 });
@@ -122,8 +131,8 @@ new Vue({
   router: router,
   data: { inactiveSidebar: true },
   computed: {
-    inHire() {
-      return this.$route.path == '/hire';
+    inHome() {
+      return this.$route.path == '/';
     }
   }
 }).$mount("#root");
