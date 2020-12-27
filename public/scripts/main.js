@@ -27,6 +27,7 @@ async function MainComponent() {
       image: "money"
     }
   ];
+  const nameRegex = /^\w{2,15}$/;
 
   return {
     template,
@@ -34,10 +35,50 @@ async function MainComponent() {
       return {
         services,
         activeService: 0,
-        showGoToTop: false
+        showGoToTop: false,
+        contact: {
+          firstname: {
+            value: "",
+            regex: nameRegex
+          },
+          lastname: {
+            value: "",
+            regex: nameRegex
+          },
+          email: {
+            value: "",
+            regex: /^\S+@\S+\.\S+$/
+          },
+          subject: {
+            value: "",
+            regex: /^\w{1,25}( \w{1,25}){0,5}$/
+          },
+          message: ""
+        }
       }
     },
     methods: {
+      sendMessage() {
+        const contact = this.contact;
+
+        if (
+          contact.firstname.regex.test(contact.firstname.value) &&
+          contact.lastname.regex.test(contact.lastname.value) &&
+          contact.email.regex.test(contact.email.value) &&
+          contact.subject.regex.test(contact.subject.value) &&
+          contact.message
+        ) {
+          return new Promise((resolve) => setTimeout(() => {
+            contact.firstname.value = "";
+            contact.lastname.value = "";
+            contact.email.value = "";
+            contact.subject.value = "";
+            contact.message = "";
+
+            resolve();
+          }, 1500));
+        }
+      },
       scrollTop() {
         scroll(0, 0);
       }
@@ -52,8 +93,10 @@ async function MainComponent() {
 }
 
 async function HireComponent() {
-  const template = await (await fetch("../templates/hire.html")).text();
-  const skills = await (await fetch("https://raw.githubusercontent.com/fforres/skills/master/tags.json")).json();
+  const templateResponse = await fetch("../templates/hire.html");
+  const template = await templateResponse.text();
+  const skillsResponse = await fetch("https://raw.githubusercontent.com/fforres/skills/master/tags.json")
+  const skills = await skillsResponse.json();
 
   return {
     template,
@@ -92,9 +135,42 @@ async function HireComponent() {
 }
 
 async function NotFoundComponent() {
-  const template = await (await fetch("../templates/404.html")).text();
+  const response = await fetch("../templates/404.html");
+  const template = await response.text();
+
   return { template };
 }
+
+Vue.component("m-input", {
+  render(createElement) {
+    const isTextarea = this.$props.type === "textarea";
+    
+    return createElement(
+      isTextarea ? "textarea" : "input",
+      {
+        domProps: { value: this.$props.value },
+        class: [
+          "transition border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-md rounded text-base focus:outline-none focus:border-transparent",
+          isTextarea || this.isValid ? "focus:ring-2 focus:ring-blue-500" : "ring-red-400 ring-2"
+        ],
+        on: { input: (e) => this.updateValue(e.target.value) }
+      }
+    );
+  },
+  props: ["type", "value", "regex"],
+  computed: {
+    isValid() {
+      return this.value === "" || this.regex.test(this.value);
+    }
+  },
+  methods: {
+    updateValue(value) {
+      this.$emit("input", value);
+    }
+  }
+});
+
+Vue.use(VuePromiseBtn);
 
 const router = new VueRouter({
   mode: "history",

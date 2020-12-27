@@ -60,18 +60,18 @@
     <div class="grid md:grid-cols-2 md:space-x-4">
       <div>
         <div class="flex space-x-2">
-          <input type="text" placeholder="First Name" class="input mb-5">
-          <input type="text" placeholder="Last Name" class="input mb-5">
+          <m-input v-model="contact.firstname.value" :regex="contact.firstname.regex" type="text" placeholder="First Name" class="mb-5" />
+          <m-input v-model="contact.lastname.value" :regex="contact.lastname.regex" type="text" placeholder="Last Name" class="mb-5" />
         </div>
-        <input type="email" placeholder="Email" class="input mb-5">
-        <button class="button hidden md:block">
+        <m-input v-model="contact.email.value" type="email" :regex="contact.email.regex" placeholder="Email" class="mb-5" />
+        <button v-promise-btn @click="sendMessage" class="button hidden md:block">
           Send Message
         </button>
       </div>
       <div>
-        <input type="text" placeholder="Subject" class="input mb-5">
-        <textarea rows="4" placeholder="Message" class="input resize-none"></textarea>
-        <button class="button mt-4 md:hidden">
+        <m-input v-model="contact.subject.value" :regex="contact.subject.regex" type="text" placeholder="Subject" class="mb-5" />
+        <m-input v-model="contact.message" type="textarea" placeholder="Message" rows="4" class="resize-none" />
+        <button v-promise-btn @click="sendMessage" class="button mt-4 md:hidden">
           Send Message
         </button>
       </div>
