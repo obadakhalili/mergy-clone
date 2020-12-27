@@ -74,9 +74,11 @@ async function MainComponent() {
             contact.email.value = "";
             contact.subject.value = "";
             contact.message = "";
-
+            this.$toast.success("Message Sent");
             resolve();
           }, 1500));
+        } else {
+          this.$toast.error("One or more fields are invalid");
         }
       },
       scrollTop() {
@@ -171,6 +173,7 @@ Vue.component("m-input", {
 });
 
 Vue.use(VuePromiseBtn);
+Vue.use(VueToast, { duration: 2000 });
 
 const router = new VueRouter({
   mode: "history",
