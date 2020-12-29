@@ -14,6 +14,9 @@ const { promises: fs } = require("fs");
       autoprefixer,
       csso
     ]).process(postCSS, { from: "src/styles.css", to: "public/styles/index.css" });
+
+    console.log(process.NODE_ENV);
+
     await fs.writeFile("public/styles/index.css", result.css);
     
     console.log("The CSS file was built successfully");
