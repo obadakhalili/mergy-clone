@@ -13,11 +13,11 @@ const { promises: fs } = require("fs");
       tailwindcss,
       autoprefixer,
       csso
-    ]).process(postCSS, { from: "src/styles.css", to: "public/styles/index.css" });
+    ]).process(postCSS, { from: "src/styles.css", to: "public/styles.css" });
 
-    console.log(process.NODE_ENV);
+    console.log(process.env.NODE_ENV);
 
-    await fs.writeFile("public/styles/index.css", result.css);
+    await fs.writeFile("public/styles.css", result.css);
     
     console.log("The CSS file was built successfully");
   } catch (e) {
