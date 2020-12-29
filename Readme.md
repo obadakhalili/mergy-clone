@@ -31,3 +31,4 @@ Used as a supply for all of the needed icons
  - vuejs.com
  - feathericons.com
  - tailwindcss.com
+ 
