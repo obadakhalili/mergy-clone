@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "serve": "live-server --port=8080 --entry-file=index.html public",
-    "build": "node ."
+    "build": "node .",
+    "build:prod": "cross-env NODE_ENV=production node ."
   },
   "dependencies": {
     "autoprefixer": "^10.0.2",
