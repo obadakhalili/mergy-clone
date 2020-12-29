@@ -15,8 +15,6 @@ const { promises: fs } = require("fs");
       csso
     ]).process(postCSS, { from: "src/styles.css", to: "public/styles.css" });
 
-    console.log(process.env.NODE_ENV);
-
     await fs.writeFile("public/styles.css", result.css);
     
     console.log("The CSS file was built successfully");
