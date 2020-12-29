@@ -4,7 +4,7 @@ Mergy Clone is an online hiring platform that has been developed for a universit
 
 # Technologies Used
 
-All of the technologies we used to enhance and maintain our project.
+All of the technologies we used to enhance and maintain our project
 
 ## Tailwind CSS
 
@@ -12,16 +12,18 @@ Used as our CSS framework
 
 ## VueJS
 
-Used for our project's ecosystem
+VueJS and its ecosystem were used as our project's framework
 
 ## Feather-icons
 
 Used as a supply for all of the needed icons
 
+## Git & Github
+
 # Front-end stack
 
- - HTML & CSS
- - Git & Github
+ - HTML
+ - CSS
 
 # References
 
@@ -29,5 +31,3 @@ Used as a supply for all of the needed icons
  - vuejs.com
  - feathericons.com
  - tailwindcss.com
-
-
