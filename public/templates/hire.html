@@ -75,10 +75,10 @@
         <h4 class="text-center text-3xl md:text-5xl font-semibold text-gray-700 mt-8">Talk to you soon!</h4>
       </template>
       <div class="flex space-x-2 mt-4">
-        <button v-if="currentStep > 0 && currentStep < 4" @click="currentStep--, $event.target.blur()" type="submit" class="button">
+        <button v-if="currentStep > 0 && currentStep < 4" @click="currentStep--, $event.target.blur()" type="submit" class="m-button">
           Previous Step
         </button>
-        <button v-promise-btn v-if="currentStep < 4" @click="nextStep" type="submit" class="button">
+        <button v-promise-btn v-if="currentStep < 4" @click="nextStep" type="submit" class="m-button">
           {{ currentStep < 3 ? 'Next Step' : 'Book a Meeting' }}
         </button>
       </div>
