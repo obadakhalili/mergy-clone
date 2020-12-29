@@ -1,6 +1,5 @@
 module.exports = {
   purge: {
-    layers: [],
     content: [
       "./public/**/*.html",
       "./public/app.js"
