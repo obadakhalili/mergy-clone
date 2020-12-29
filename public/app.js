@@ -117,7 +117,8 @@ async function HireComponent() {
           { header: "Ready to Go?" },
           { header: "Completed" }
         ],
-        currentStep: 0
+        currentStep: 0,
+        isBooking: false
       };
     },
     computed: {
@@ -144,6 +145,7 @@ async function HireComponent() {
             return this.$toast.error("One or more fields are invalid");
           }
         } else if (this.currentStep === 3) {
+          this.isBooking = true;
           return new Promise((resolve) => setTimeout(() => {
             this.currentStep++;
             resolve();
