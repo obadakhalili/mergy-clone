@@ -1,4 +1,4 @@
-<section id="hire" class="py-4 md:py-10 px-6 md:px-24">
+<section :class="[currentStep === 2 ? 'min-screen-height' : 'screen-height']" class="py-4 md:py-10 px-6 md:px-24">
   <div class="bg-gray-100 rounded-lg p-5 h-full">
     <header class="grid grid-cols-3">
       <h3 class="col-span-2 font-semibold text-xl md:text-2xl">
@@ -13,61 +13,60 @@
         <div>
           <label>Choose your desired skillset</label>
           <vue-multiselect
-            v-model="hireInfo[currentStep].inputs[0].values"
-            :options="hireInfo[currentStep].inputs[0].options"
+            v-model="hireInfo[0].info[0].values"
+            :options="hireInfo[0].info[0].options"
             :multiple="true"
             class="mt-2"
-          ></vue-multiselect>
+          />
         </div>
         <div class="mt-3">
           <label>Hiring needs</label>
           <vue-multiselect
-            v-model="hireInfo[0].inputs[1].value"
-            :options="hireInfo[0].inputs[1].options"
+            v-model="hireInfo[0].info[1].value"
+            :options="hireInfo[0].info[1].options"
             class="mt-2"
-          ></vue-multiselect>
+          />
         </div>
       </template>
       <template v-else-if="currentStep === 1">
         <div>
           <label>Name</label>
           <div class="flex space-x-2 mt-2">
-            <input v-model="hireInfo[1].inputs[0]" type="text" class="input" placeholder="Firstname">
-            <input v-model="hireInfo[1].inputs[1]" type="text" class="input" placeholder="Lastname">
+            <m-input v-model="hireInfo[1].info[0]" :regex="regexs.name" type="text" placeholder="First Name" />
+            <m-input v-model="hireInfo[1].info[1]" :regex="regexs.name" type="text" placeholder="Last Name" />
           </div>
         </div>
         <div class="mt-3">
           <label>Email Address</label>
-          <input v-model="hireInfo[1].inputs[2]" type="email" class="input mt-2" placeholder="Email">
+          <m-input v-model="hireInfo[1].info[2]" :regex="regexs.email" type="email" placeholder="Email" />
         </div>
         <div class="mt-3">
           <label>Phone Number</label>
-          <input v-model="hireInfo[1].inputs[3]" type="number" class="input mt-2" placeholder="Phone">
+          <vue-tel-input v-model="hireInfo[1].info[3]" dynamicPlaceholder :inputClasses="[isPhoneValid ? 'focus:ring-2 focus:ring-blue-500' : 'ring-2 ring-red-400', 'm-input']" />
         </div>
       </template>
-      <template v-else-if="currentStep === 2">
-        <h4 class="text-xl md:text-2xl">
-          We need to set up a meeting with you to better understand your needs, then we will:
-        </h4>
-        <ul class="list-disc list-inside">
-          <li>
-            Send you engineers' resumes that comply with your needs
-          </li>
-          <li>
-            Interview your engineer/engineers of choice
-          </li>
-          <li>
-            Start your 4 week no-risk trial
-          </li>
-        </ul>
-        <div class="flex mt-3">
-          <label class="flex-none w-24 self-center">Pick a Date</label>
-          <input v-model="hireInfo[2].date" type="datetime-local" class="input">
-        </div>
-      </template>
+      <div v-else-if="currentStep === 2" class="grid md:grid-cols-2 space-y-4 md:space-x-4 md:space-y-0">
+        <article>
+          <h4 class="text-xl md:text-2xl">
+            We need to set up a meeting with you to better understand your needs, then we will:
+          </h4>
+          <ul class="list-disc list-inside">
+            <li>
+              Send you engineers' resumes that comply with your needs
+            </li>
+            <li>
+              Interview your engineer/engineers of choice
+            </li>
+            <li>
+              Start your 3 week no-risk trial
+            </li>
+          </ul>
+        </article>
+        <v-date-picker v-model="hireInfo[2].date" :min-date="new Date(new Date().getTime() + 1.728e+8)" mode="dateTime" is-required class="justify-self-center"/>
+      </div>
       <template v-else-if="currentStep === 3">
         <p>
-          Okay Mr.<b>{{ hireInfo[1].inputs[1] }}</b>, you have a meeting on
+          Okay Mr.<b>{{ hireInfo[1].info[1] }}</b>, you have a meeting on
           <b>{{ new Date(hireInfo[2].date).toLocaleString() }}</b> with us to fill us more on what you need. Sounds good?
         </p>
       </template>
@@ -79,8 +78,8 @@
         <button v-if="currentStep > 0 && currentStep < 4" @click="currentStep--, $event.target.blur()" type="submit" class="button">
           Previous Step
         </button>
-        <button v-if="currentStep < 4" @click="currentStep++, $event.target.blur()" type="submit" class="button">
-          {{ currentStep < 3 ? 'Next Step' : 'Yes' }}
+        <button v-promise-btn v-if="currentStep < 4" @click="nextStep" type="submit" class="button">
+          {{ currentStep < 3 ? 'Next Step' : 'Book a Meeting' }}
         </button>
       </div>
     </form>

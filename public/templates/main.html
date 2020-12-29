@@ -1,6 +1,6 @@
 <main>
   <!-- Jumbotron -->
-  <section id="jumbotron" class="p-8 grid items-center md:grid-cols-2">
+  <section class="p-8 grid items-center md:grid-cols-2 screen-height">
     <img src="images/cover.svg" alt="Cover Photo" class="mb-5 md:mb-0 md:order-1">
     <aside>
       <h3 class="text-4xl lg:text-6xl">
@@ -59,13 +59,13 @@
     </h3>
     <div class="grid md:grid-cols-2">
       <div class="flex space-x-2 mb-4">
-        <m-input v-model="contact.firstname.value" :regex="contact.firstname.regex" type="text" placeholder="First Name" />
-        <m-input v-model="contact.lastname.value" :regex="contact.lastname.regex" type="text" placeholder="Last Name" />
+        <m-input v-model="contact.firstname" :regex="regexs.name" type="text" placeholder="First Name" />
+        <m-input v-model="contact.lastname" :regex="regexs.name" type="text" placeholder="Last Name" />
       </div>
-      <m-input v-model="contact.email.value" :regex="contact.email.regex" class="md:order-2 mb-4" type="email" placeholder="Email" />
-      <m-input v-model="contact.subject.value" :regex="contact.subject.regex" class="md:order-1 md:ml-2 mb-4" type="text" placeholder="Subject" />
+      <m-input v-model="contact.email" :regex="regexs.email" class="md:order-2 mb-4" type="email" placeholder="Email" />
+      <m-input v-model="contact.subject" :regex="regexs.title" class="md:order-1 md:ml-2 mb-4" type="text" placeholder="Subject" />
       <m-input v-model="contact.message" type="textarea" class="resize-none md:order-3 md:row-span-2 md:ml-2 mb-4 md:mb-0" placeholder="Message" />
-      <button v-promise-btn @click="sendMessage" class="button md:order-4">
+      <button v-promise-btn @click="sendMessage" class="m-button md:order-4">
         Send Message
       </button>
     </div>

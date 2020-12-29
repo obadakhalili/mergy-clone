@@ -18,19 +18,27 @@
 }
 
 @layer components {  
-  .button {
+  .m-button {
     @apply font-semibold py-2 md:py-3 px-4 rounded shadow-md transition focus:outline-none focus:ring-offset-2 focus:ring-2 focus:ring-blue-500 text-white bg-blue-500 focus:bg-blue-500 hover:bg-blue-700 focus:ring-offset-blue-200 disabled:opacity-50;
   }
 
-  #jumbotron,
-  #hire,
-  #notfound {
-    height: calc(100vh - 100px);
+  .m-input {
+    @apply transition border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-md rounded text-base focus:outline-none focus:border-transparent;
   }
 
   @media (min-width: 768px) {
     #navbar {
       height: 100px;
     }
+  }
+}
+
+@layer utilities {
+  .screen-height {
+    height: calc(100vh - 100px);
+  }
+
+  .min-screen-height {
+    min-height: calc(100vh - 100px);
   }
 }

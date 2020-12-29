@@ -27,7 +27,6 @@ async function MainComponent() {
       image: "money"
     }
   ];
-  const nameRegex = /^\w{2,15}$/;
 
   return {
     template,
@@ -37,22 +36,10 @@ async function MainComponent() {
         activeService: 0,
         showGoToTop: false,
         contact: {
-          firstname: {
-            value: "",
-            regex: nameRegex
-          },
-          lastname: {
-            value: "",
-            regex: nameRegex
-          },
-          email: {
-            value: "",
-            regex: /^\S+@\S+\.\S+$/
-          },
-          subject: {
-            value: "",
-            regex: /^\w{1,25}( \w{1,25}){0,5}$/
-          },
+          firstname: "",
+          lastname: "",
+          email: "",
+          subject: "",
           message: ""
         }
       }
@@ -60,19 +47,20 @@ async function MainComponent() {
     methods: {
       sendMessage() {
         const contact = this.contact;
+        const regexs = this.regexs;
 
         if (
-          contact.firstname.regex.test(contact.firstname.value) &&
-          contact.lastname.regex.test(contact.lastname.value) &&
-          contact.email.regex.test(contact.email.value) &&
-          contact.subject.regex.test(contact.subject.value) &&
+          regexs.name.test(contact.firstname) &&
+          regexs.name.test(contact.lastname) &&
+          regexs.email.test(contact.email) &&
+          regexs.title.test(contact.subject) &&
           contact.message
         ) {
           return new Promise((resolve) => setTimeout(() => {
-            contact.firstname.value = "";
-            contact.lastname.value = "";
-            contact.email.value = "";
-            contact.subject.value = "";
+            contact.firstname = "";
+            contact.lastname = "";
+            contact.email = "";
+            contact.subject = "";
             contact.message = "";
             this.$toast.success("Message Sent");
             resolve();
@@ -82,7 +70,7 @@ async function MainComponent() {
         }
       },
       scrollTop() {
-        scroll(0, 0);
+        window.scroll(0, 0);
       }
     },
     mounted() {
@@ -107,7 +95,7 @@ async function HireComponent() {
         hireInfo: [
           {
             header: "Employee's Info",
-            inputs: [
+            info: [
               {
                 values: ["html", "css", "javascript"],
                 options: skills.map(item => item.tagName)
@@ -120,11 +108,11 @@ async function HireComponent() {
           },
           {
             header: "Your Info",
-            inputs: ["Harry", "Potter", "harry.gryffindor@hogwarts.com", "6054756961"]
+            info: ["Harry", "Potter", "harry.gryffindor@hogwarts.com", ""]
           },
           {
             header: "Meeting Set-up",
-            date: new Date().toLocaleString()
+            date: new Date(new Date().getTime() + 1.728e+8)
           },
           { header: "Ready to Go?" },
           { header: "Completed" }
@@ -132,7 +120,41 @@ async function HireComponent() {
         currentStep: 0
       };
     },
-    components: { "vue-multiselect": VueMultiselect.default }
+    computed: {
+      isPhoneValid() {
+        return this.hireInfo[1].info[3] === "" || this.regexs.phone.test(this.hireInfo[1].info[3]);
+      }
+    },
+    methods: {
+      nextStep(e) {
+        if (this.currentStep === 0) {
+          if (
+            this.hireInfo[0].info[0].values.length === 0 ||
+            this.hireInfo[0].info[1].value === null
+          ) {
+            return this.$toast.error("One or more fields are invalid");
+          }
+        } else if (this.currentStep === 1) {
+          if (
+            !this.regexs.name.test(this.hireInfo[1].info[0]) ||
+            !this.regexs.name.test(this.hireInfo[1].info[1]) ||
+            !this.regexs.email.test(this.hireInfo[1].info[2]) ||
+            !this.regexs.phone.test(this.hireInfo[1].info[3])
+          ) {
+            return this.$toast.error("One or more fields are invalid");
+          }
+        } else if (this.currentStep === 3) {
+          return new Promise((resolve) => setTimeout(() => {
+            this.currentStep++;
+            resolve();
+          }, 1500));
+        }
+
+        this.currentStep++;
+        e.target.blur();
+      }
+    },
+    components: { "vue-multiselect": window.VueMultiselect.default }
   };
 }
 
@@ -153,7 +175,7 @@ Vue.component("m-input", {
         domProps: { value: this.$props.value },
         class: [
           "transition border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-md rounded text-base focus:outline-none focus:border-transparent",
-          isTextarea || this.isValid ? "focus:ring-2 focus:ring-blue-500" : "ring-red-400 ring-2"
+          isTextarea || this.isValid ? "focus:ring-2 focus:ring-blue-500" : "ring-2 ring-red-400"
         ],
         on: { input: (e) => this.updateValue(e.target.value) }
       }
@@ -172,8 +194,24 @@ Vue.component("m-input", {
   }
 });
 
-Vue.use(VuePromiseBtn);
-Vue.use(VueToast, { duration: 2000 });
+Vue.use(window.VuePromiseBtn);
+Vue.use(window.VueToast, { duration: 2000 });
+Vue.use(window.VueTelInput);
+
+Vue.mixin({
+  data() {
+    return {
+      get regexs() {
+        return {
+          name: /^\w{2,15}$/,
+          email: /^\S+@\S+\.\S+$/,
+          title: /^\w{1,25}( \w{1,25}){0,5}$/,
+          phone: /^[0-9 ]+$/
+        };
+      }
+    };
+  }
+});
 
 const router = new VueRouter({
   mode: "history",
